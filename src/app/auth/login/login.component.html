@@ -1,0 +1,14 @@
+<form fxLayout="column">
+    <h3 fxFlexAlign='center'>Sejá bem vindo, faça login.</h3>
+    <mat-form-field>
+        <input matInput placeholder="Email" type="email" value="">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Password" type="password" value="">
+    </mat-form-field>
+    <section fxLayout="row wrap" fxLayoutAlign="space-between center">
+        <mat-checkbox>Lembrar-me</mat-checkbox>
+        <button mat-button color='accent' [routerLink]="['/auth/forgot']" >Esqueci minha senha </button>
+    </section>
+    <button mat-raised-button color='primary'>ENTRAR</button>
+</form>
