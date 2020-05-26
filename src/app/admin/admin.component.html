@@ -1,2 +1,77 @@
-<p>admin works!</p>
-<router-outlet></router-outlet>
+<mat-sidenav-container fxFill>
+    <mat-sidenav #chatbox position="end" mode='side' style="width: 300px;">
+    <mat-toolbar color='primary'>
+        <h6>Conversas</h6>
+    </mat-toolbar>
+    </mat-sidenav>
+    <mat-sidenav #menu style="min-width: 300px;"  mode='side'>
+        <mat-toolbar fxLayoutAlign="space-between center">
+            <mat-icon><img src="../../assets/logo.svg" alt=""></mat-icon><span>Menu</span>
+        </mat-toolbar>
+        <mat-nav-list>
+            <mat-list-item routerLink="/">
+                <mat-icon matListIcon color="primary">dashboard</mat-icon>
+                <h1 matLine> Dashboard </h1>
+            </mat-list-item>
+          <mat-list-item routerLink="/services">
+              <mat-icon matListIcon color="primary">list_alt</mat-icon>
+              <h1 matLine> Serviços </h1>
+          </mat-list-item>
+          <mat-list-item routerLink="/chat">
+              <mat-icon matListIcon color="primary">chat</mat-icon>
+              <h1 matLine> Chat </h1>
+          </mat-list-item>
+          <mat-list-item  routerLink="/clients">
+              <mat-icon matListIcon color="primary">group</mat-icon>
+              <h1 matLine> Clientes </h1>
+          </mat-list-item>
+          <mat-list-item >
+              <mat-icon matListIcon color="primary">attach_money</mat-icon>
+              <h1 matLine> Caixa </h1>
+          </mat-list-item>
+          <mat-list-item >
+              <mat-icon matListIcon color="primary">supervised_user_circle</mat-icon>
+              <h1 matLine> Funcionarios </h1>
+          </mat-list-item>
+          <mat-list-item >
+              <mat-icon matListIcon color="primary">shopping_cart</mat-icon>
+              <h1 matLine> Produltos </h1>
+          </mat-list-item>
+          <mat-list-item >
+              <mat-icon matListIcon color="primary">scatter_plot</mat-icon>
+              <h1 matLine> Ingredientes </h1>
+          </mat-list-item>
+          <mat-list-item >
+              <mat-icon matListIcon color="primary">settings</mat-icon>
+              <h1 matLine> Configurações </h1>
+          </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <button (click)="menu.toggle()" mat-icon-button color='primary' matTooltip="Abrir menu">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <mat-icon><img src="../../assets/logo.svg" alt=""></mat-icon>
+            <span class="brand-title">GOTECSERVICE</span>
+            <span fxFlex='1 1 auto'></span>
+            <button mat-icon-button color='primary' (click)="chatbox.toggle()" matTooltip="chat">
+                <mat-icon>chat</mat-icon>
+            </button>
+            <button mat-icon-button color='primary' matTooltip="notificações">
+                <mat-icon>notifications_active</mat-icon>
+            </button>
+            <button mat-icon-button color='primary' matTooltip="minha conta">
+                <mat-icon>account_circle</mat-icon>
+            </button>
+            <button mat-icon-button [matMenuTriggerFor]="menu_more" color='primary' matTooltip="mais menus">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+        </mat-toolbar>
+        <mat-menu #menu_more="matMenu">
+            <button mat-menu-item><mat-icon>settings</mat-icon> Configurações</button>
+            <button mat-menu-item><mat-icon>exit_to_app</mat-icon> Sair</button>
+          </mat-menu>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ServicesComponent } from './services/services.component';
+import { ChatComponent } from './chat/chat.component';
+import { ClientsComponent } from './clients/clients.component';
 
 
 const routes: Routes = [{
@@ -9,11 +12,24 @@ const routes: Routes = [{
   component: AdminComponent,
   pathMatch: 'prefix',
   children: [
-  {
-    path: '',
-    component: DashboardComponent,
-    pathMatch: 'prefix'
-  }]
+    {
+      path: 'services',
+      component: ServicesComponent,
+      pathMatch: 'prefix',
+    },{
+      path: 'chat',
+      component: ChatComponent,
+      pathMatch: 'prefix',
+    },{
+      path: 'clients',
+      component: ClientsComponent,
+      pathMatch: 'prefix'
+    },{
+      path: '',
+      component: DashboardComponent,
+      pathMatch: 'prefix'
+    }
+  ]
 }];
 
 @NgModule({
